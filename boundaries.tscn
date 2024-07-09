@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dws5u5hdw706r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41g1g"]
+size = Vector2(640, 6)
+
+[node name="Boundaries" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(320, 9)
+shape = SubResource("RectangleShape2D_41g1g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(320, 353)
+shape = SubResource("RectangleShape2D_41g1g")
+
+[node name="UpBoundary" type="ColorRect" parent="."]
+offset_top = 8.0
+offset_right = 640.0
+offset_bottom = 10.0
+
+[node name="DownBoundary" type="ColorRect" parent="."]
+offset_top = 352.0
+offset_right = 640.0
+offset_bottom = 354.0
