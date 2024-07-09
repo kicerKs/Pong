@@ -7,12 +7,11 @@ var v_speed
 var h_speed
 var up_down_direction = -1
 var left_right_direction = 1
-var screen_size
+var screen_size = Vector2i(640, 360)
 var speed_multiplier = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
 	rand_h_speed()
 	rand_v_speed()
 
