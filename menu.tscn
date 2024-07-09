@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bphgyckgbgoor"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_8vvx8"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_8vvx8")
+
+[node name="StartOnePlayerButton" type="Button" parent="."]
+offset_left = 246.0
+offset_top = 159.0
+offset_right = 392.0
+offset_bottom = 190.0
+text = "Start Game (vs AI)"
+
+[node name="ResumeButton" type="Button" parent="."]
+offset_left = 258.0
+offset_top = 203.0
+offset_right = 378.0
+offset_bottom = 234.0
+text = "Resume Game"
+
+[node name="StartTwoPlayersButton" type="Button" parent="."]
+offset_left = 232.0
+offset_top = 116.0
+offset_right = 411.0
+offset_bottom = 147.0
+text = "Start Game (2 players)"
+
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 583.0
+offset_top = 322.0
+offset_right = 634.0
+offset_bottom = 353.0
+text = "Reset"
+
+[connection signal="pressed" from="StartOnePlayerButton" to="." method="_on_start_one_player_button_pressed"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="StartTwoPlayersButton" to="." method="_on_start_two_players_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]

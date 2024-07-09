@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp23jf0thmcyb"]
+[gd_scene load_steps=7 format=3 uid="uid://bp23jf0thmcyb"]
 
 [ext_resource type="PackedScene" uid="uid://dws5u5hdw706r" path="res://boundaries.tscn" id="1_b7s0n"]
 [ext_resource type="Script" path="res://main.gd" id="1_yv7rw"]
 [ext_resource type="PackedScene" uid="uid://fjr3b2ros7gf" path="res://ball.tscn" id="2_d27h5"]
 [ext_resource type="PackedScene" uid="uid://b6huxbuxmwy04" path="res://player.tscn" id="3_o0ts3"]
 [ext_resource type="PackedScene" uid="uid://cg7vndq473r50" path="res://hud.tscn" id="5_0uh7e"]
+[ext_resource type="PackedScene" uid="uid://bphgyckgbgoor" path="res://menu.tscn" id="6_7sblx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_yv7rw")
@@ -28,5 +29,12 @@ position = Vector2(306, 172)
 
 [node name="HUD" parent="." instance=ExtResource("5_0uh7e")]
 
+[node name="Menu" parent="." instance=ExtResource("6_7sblx")]
+process_mode = 2
+
 [connection signal="p1_scored" from="Ball" to="." method="_on_ball_p_1_scored"]
 [connection signal="p2_scored" from="Ball" to="." method="_on_ball_p_2_scored"]
+[connection signal="reset_pressed" from="Menu" to="." method="_on_menu_reset_pressed"]
+[connection signal="resume_pressed" from="Menu" to="." method="_on_menu_resume_pressed"]
+[connection signal="start_one_player_pressed" from="Menu" to="." method="_on_menu_start_one_player_pressed"]
+[connection signal="start_two_players_pressed" from="Menu" to="." method="_on_menu_start_two_players_pressed"]
