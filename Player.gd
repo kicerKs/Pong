@@ -3,12 +3,12 @@ extends Area2D
 @export var speed = 150
 @export var player = "p1"
 @export var ball_pos = Vector2i(0, 0)
-var screen_height
+var screen_height = 360
 @export var ai_controlled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_height = get_viewport_rect().size.y
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
