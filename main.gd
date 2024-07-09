@@ -8,6 +8,7 @@ var p2_pos = Vector2i(4, 150)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$HUD.get_node("Countdown").visible = false
 	get_tree().paused = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,10 +19,19 @@ func _process(delta):
 	$Player2.ball_pos = $Ball.position
 
 func new_game():
+	$HUD.get_node("Countdown").visible = true
 	reset_players()
 	$Ball.restart()
 	$Ball.get_tree().paused = true
-	await get_tree().create_timer(2.0).timeout
+	$HUD.get_node("Countdown").text = "3"
+	await get_tree().create_timer(1.0).timeout
+	$HUD.get_node("Countdown").text = "2"
+	await get_tree().create_timer(1.0).timeout
+	$HUD.get_node("Countdown").text = "1"
+	await get_tree().create_timer(1.0).timeout
+	$HUD.get_node("Countdown").text = "Go!"
+	await get_tree().create_timer(1.0).timeout
+	$HUD.get_node("Countdown").visible = false
 	$Ball.get_tree().paused = false
 
 func reset_players():
