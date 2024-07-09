@@ -36,12 +36,16 @@ func _process(delta):
 func _on_area_entered(area):
 	if(area.name == "Boundaries"):
 		up_down_direction = up_down_direction * -1
+		$BoundarySound.play()
 	if(area.name == "Player1" or area.name == "Player2"):
 		left_right_direction = left_right_direction * -1
 		speed_multiplier += 0.05
 		rand_h_speed()
+		$PlayerSound.play()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	$BoundarySound.stop()
+	$PlayerSound.stop()
 	if(position.x < 0):
 		p1_scored.emit()
 	else:

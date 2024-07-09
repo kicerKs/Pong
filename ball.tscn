@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fjr3b2ros7gf"]
+[gd_scene load_steps=6 format=3 uid="uid://fjr3b2ros7gf"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_wn42x"]
 [ext_resource type="Texture2D" uid="uid://bgg4tan1co5ut" path="res://assets/ball.png" id="1_yvk2r"]
+[ext_resource type="AudioStream" uid="uid://wbkbvbftolo6" path="res://assets/ding1.wav" id="3_k08ae"]
+[ext_resource type="AudioStream" uid="uid://fq268kfal4o4" path="res://assets/ding2.wav" id="4_yqsu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nm0vs"]
 radius = 5.09902
@@ -16,6 +18,14 @@ texture = ExtResource("1_yvk2r")
 shape = SubResource("CircleShape2D_nm0vs")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="BoundarySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k08ae")
+volume_db = 10.0
+
+[node name="PlayerSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yqsu5")
+volume_db = 10.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
